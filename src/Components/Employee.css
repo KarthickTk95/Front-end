@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.container {
+    margin-top: 20px;
+   background: turquoise;
+scrollbar-color: #5b05e6 #f0eff6;
+scrollbar-width: thin; /* or 'auto' for automatic width */
+
+  }
+
+
+  #Employee{
+    height: 400px;
+    overflow: scroll;
+  }
+ 
+ 
+  .Actions{
+  width: 150px;
+  }
+  .table{
+    font-size: 15px;
+
+  }
+
+  #Employee h2{
+  font-size: 20px;
+  font-weight: bold;
+
+}
+ 
+  

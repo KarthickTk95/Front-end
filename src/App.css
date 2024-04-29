@@ -1,0 +1,16 @@
+.navbar ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  flex-wrap: nowrap;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-left: 20px;
+
+}
+.navbar{
+  background-color: azure;
+}
