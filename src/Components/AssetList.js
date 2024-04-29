@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios'; // Assuming you're using axios for HTTP requests
+import './AssetList.css'
 
 const AssetList = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -73,8 +74,8 @@ const AssetList = () => {
   };
 
   return (
-    <div className="container">
-      <h2 className="mt-4">Asset List</h2>
+    <div className="container" id='Assethead'>
+      <h2 className="mt-4" >Asset List</h2>
       <input
         type="text"
         placeholder="Search..."
@@ -102,10 +103,10 @@ const AssetList = () => {
               <td>{asset.asset_category_id}</td>
               <td>{asset.is_active ? 'Active' : 'Inactive'}</td>
               <td>
-                <button onClick={() => handleEditAsset(asset)}>
+                <button className="btn btn-primary mr-2" onClick={() => handleEditAsset(asset)}>
                   Edit
                 </button>
-                <button onClick={() => handleDeleteAsset(asset.asset_id)}>
+                <button className="btn btn-danger" onClick={() => handleDeleteAsset(asset.asset_id)}>
                   Delete
                 </button>
               </td>
@@ -115,6 +116,7 @@ const AssetList = () => {
             <td>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Serial Number"
                 value={formData.serial_number}
                 onChange={(e) =>
@@ -125,6 +127,7 @@ const AssetList = () => {
             <td>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Make"
                 value={formData.make}
                 onChange={(e) =>
@@ -135,6 +138,7 @@ const AssetList = () => {
             <td>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Model"
                 value={formData.model}
                 onChange={(e) =>
@@ -145,6 +149,7 @@ const AssetList = () => {
             <td>
               <input
                 type="text"
+                className="form-control"
                 placeholder="Category ID"
                 value={formData.asset_category_id}
                 onChange={(e) =>
@@ -155,6 +160,7 @@ const AssetList = () => {
             <td>
               <input
                 type="checkbox"
+                className="form-control"
                 checked={formData.is_active}
                 onChange={(e) =>
                   setFormData({ ...formData, is_active: e.target.checked })
@@ -162,7 +168,7 @@ const AssetList = () => {
               />
             </td>
             <td>
-              <button onClick={handleAddOrUpdateAsset}>
+              <button className="btn btn-primary mr-2" onClick={handleAddOrUpdateAsset}>
                 {formData.asset_id ? 'Update' : 'Add'}
               </button>
               {formData.asset_id && <button onClick={resetFormData}>Cancel</button>}
