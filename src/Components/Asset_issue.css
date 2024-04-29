@@ -6,7 +6,7 @@
 scrollbar-color: #5b05e6 #f0eff6;
 scrollbar-width: thin; /* or 'auto' for automatic width */
   }
-  #Employee{
+  #assetissue{
     height: 400px;
     overflow: scroll;
   }
@@ -16,7 +16,7 @@ scrollbar-width: thin; /* or 'auto' for automatic width */
   .table{
     font-size: 15px;
   }
-  #Employee h2{
+  #assetissue h2{
   font-size: 20px;
   font-weight: bold;
 

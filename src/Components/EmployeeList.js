@@ -123,7 +123,7 @@ const EmployeeList = () => {
 
   return (
     <div className="container" id="Employee">
-      <h2 className="mt-4">Employee List</h2>
+      <h2 className="mt-4">EMPLOYEE LIST</h2>
       <input
         type="text"
         placeholder="Search..."

@@ -5,8 +5,9 @@
    background: turquoise;
 scrollbar-color: #5b05e6 #f0eff6;
 scrollbar-width: thin; /* or 'auto' for automatic width */
-  }
-  #Employee{
+box-shadow: 10px 10px 10px 10px rgba(34, 31, 31, 0.5);
+}
+  #AssetReturn{
     height: 400px;
     overflow: scroll;
   }
@@ -16,7 +17,7 @@ scrollbar-width: thin; /* or 'auto' for automatic width */
   .table{
     font-size: 15px;
   }
-  #Employee h2{
+  #AssetReturn h2{
   font-size: 20px;
   font-weight: bold;
 

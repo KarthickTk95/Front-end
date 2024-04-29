@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Asset_return.css';
 
 const Asset_return = () => {
   const [assetReturns, setAssetReturns] = useState([]);
@@ -80,16 +81,18 @@ const Asset_return = () => {
       .catch(error => console.error('Error deleting asset return', error));
   };
 
-  const handleSearch = () => {
-    fetch(`http://localhost:5000/api/assetReturn?search=${searchTerm}`)
-      .then(response => response.json())
-      .then(data => setAssetReturns(data))
-      .catch(error => console.error('Error searching asset returns', error));
-  };
+  const filteredReturns = assetReturns.filter(issue =>
+    (typeof issue.return_id === 'string' && issue.return_id.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.issue_id === 'string' && issue.issue_id.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.return_date === 'string' && issue.return_date.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.return_reason === 'string' && issue.return_reason.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+  
+  
 
   return (
-    <div className="container">
-      <h2 className="mt-4">Asset Returns</h2>
+    <div className="container" id='AssetReturn'>
+      <h2 className="mt-4">ASSET RETURNS </h2>
       <input
         type="text"
         placeholder="Search..."
@@ -97,7 +100,6 @@ const Asset_return = () => {
         value={searchTerm}
         onChange={e => setSearchTerm(e.target.value)}
       />
-      <button className="btn btn-primary mb-3" onClick={handleSearch}>Search</button>
       <table className="table table-striped mt-3">
         <thead>
           <tr>
@@ -109,7 +111,7 @@ const Asset_return = () => {
           </tr>
         </thead>
         <tbody>
-          {assetReturns.map(assetReturn => (
+          {filteredReturns.map(assetReturn => (
             <tr key={assetReturn.issue_id}>
               <td>{assetReturn.return_id}</td>
               <td>{assetReturn.issue_id}</td>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './Asset_issue.css';
 
 const Asset_issue = () => {
   const [assetIssues, setAssetIssues] = useState([]);
@@ -85,10 +86,19 @@ const Asset_issue = () => {
       .catch(error => console.error('Error deleting asset issue', error));
   };
 
+  const filteredIssues = assetIssues.filter(issue =>
+    (typeof issue.asset_id === 'string' && issue.asset_id.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.employee_id === 'string' && issue.employee_id.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.issue_date === 'string' && issue.issue_date.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.returned === 'boolean' && (issue.returned ? 'Yes' : 'No').toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.return_date === 'string' && issue.return_date.toLowerCase().includes(searchTerm.toLowerCase())) ||
+    (typeof issue.return_reason === 'string' && issue.return_reason.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
+  
 
   return (
-    <div className="container">
-      <h2 className="mt-4">Asset Issues</h2>
+    <div className="container" id='assetissue'>
+      <h2 className="mt-4">ASSET ISSUES</h2>
       <input
         type="text"
         placeholder="Search..."
@@ -109,7 +119,7 @@ const Asset_issue = () => {
           </tr>
         </thead>
         <tbody>
-          {assetIssues.map(issue => (
+          {filteredIssues.map(issue => (
             <tr key={issue.issue_id}>
               <td>{issue.asset_id}</td>
               <td>{issue.employee_id}</td>

@@ -75,7 +75,7 @@ const AssetList = () => {
 
   return (
     <div className="container" id='Assethead'>
-      <h2 className="mt-4" >Asset List</h2>
+      <h2 className="mt-4" >ASSET LIST</h2>
       <input
         type="text"
         placeholder="Search..."
